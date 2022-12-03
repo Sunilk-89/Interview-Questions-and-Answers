@@ -33,8 +33,7 @@ Ans: - 	One advantage is that they are thread safe. If you are working with a mu
 
   b) Why are immutable strings a bad idea? 
 
-Ans: - 	The main issue is that constantly changing strings can lead to performance issues. We will explain this in a code block. 
-		If you refer back to the code snippets from the previous section, you will see that we only modified the string one time.
+Ans: - 	The main issue is that constantly changing strings can lead to performance issues.
 		 Suppose we have a scenario like this:
 		 
 			string str = "Hello World";
