@@ -1,0 +1,165 @@
+1. what is WSDL?
+
+Ans:-  	WSDL stands for Web Services Description Language. 
+		It is the standard format for describing a web service. 
+		WSDL was developed jointly by Microsoft and IBM.
+		
+		Features of WSDL::- 
+			a. WSDL is an XML-based protocol for information exchange in decentralized and distributed environments.
+			b. WSDL definitions describe how to access a web service and what operations it will perform.
+			
+		WSDL Usage:: -
+			WSDL is often used in combination with SOAP and XML Schema to provide web services over the Internet. 
+			A client program connecting to a web service can read the WSDL to determine what functions are available on the server. 
+			Any special datatypes used are embedded in the WSDL file in the form of XML Schema. The client can then use SOAP to 
+			actually call one of the functions listed in the WSDL.
+			
+2. Debouncing In JavaScript
+
+Ans: -	Debouncing in JavaScript is a practice used to improve browser performance. 
+		There might be some functionality in a web page which requires time-consuming computations. 
+		If such a method is invoked frequently, it might greatly affect the performance of the browser, 
+		as JavaScript is a single threaded language. 
+		Debouncing is a programming practice used to ensure that time-consuming tasks do not fire so often, 
+		that it stalls the performance of the web page. In other words, it limits the rate at which a function gets invoked.
+		
+3. a)  Why should you use immutable strings? 
+
+Ans: - 	One advantage is that they are thread safe. If you are working with a multi threaded system, there will be no risk 
+		of a deadlock or any concurrency issues, since when you modify a string, you are really just creating a new object in memory.
+		
+		Another advantage is that you will not have to worry about accidentally changing them. You do not need to take the additional
+		safety measures (i.e. a defensive object copy) that you may need to take with a mutable object.
+
+  b) Why are immutable strings a bad idea? 
+
+Ans: - 	The main issue is that constantly changing strings can lead to performance issues. We will explain this in a code block. 
+		If you refer back to the code snippets from the previous section, you will see that we only modified the string one time.
+		 Suppose we have a scenario like this:
+		 
+			string str = "Hello World";
+			Console.WriteLine(str);
+			//This will print out "Hello World" to the console.
+
+			for (int i = 0; i < 10; i++)	
+				{
+					str += " again";
+					Console.WriteLine(str);
+				}
+			You can see the output below. This code prints "again" for each iteration (ten times) after the original "Hello World".
+			However, for each iteration, since the string is immutable, what is happening in memory is that ten times the CLR is 
+			allocating new space in memory and storing a new str variable, and each time it's creating bigger blocks to save more data.
+			
+			
+4. Dispose and filnalize
+
+
+Ans: - Dispose::
+		a. The method dispose( ) is defined in the interface IDisposable interface.
+		b. The method dispose( ) is invoked by the user.
+		c. Method dispose( ) is used to free unmanaged resources whenever it is invoked.
+		d. The method dispose( ) is to be implemented whenever there is a close( ) method.
+		e. The method dispose( ) is declared as public.
+		f. The method dispose( ) is faster and instantly disposes an object.
+		g. The method disposes( ) performs the instantaneous action hence, does not effect the performance of websites.
+	
+	 filnalize::
+		a. The method finalize( ) is invoked by the garbage collector.
+		b. Method finalize( ) is used to free unmanaged resources before the object is destroyed.
+		c. The method finalize( ) is to be implemented for unmanaged resources.
+		d. The method finalize( ) is declared as private.
+		e. The method finalize is slower as compared to dispose
+		f. The method finalize( ) being slower affects the performance of the websites.
+		
+5. Private Constructor
+
+Ans: - 	Private constructor is a special instance constructor which is used in a class that contains static member only.
+		If a class has one or more private constructor and no public constructor then other classes are not allowed to 
+		create instance of this class; this means you can neither create the object of the class nor can it be inherited by other classes.
+		The main purpose of creating private constructor is to restrict the class from being instantiated when it contains 
+		every member as static. 
+		
+6. Implement Singleton in C#?
+
+Ans: -  public  sealed class Singleton
+		{
+			private static readonly Lazy<Singleton> lazy=new Lazy<Singleton>(()=>new Singleton());
+				private Singleton()
+				{
+				}
+			public static Singleton getInstance
+			{
+				get{
+					return lazy.Value;
+					}
+			}
+
+		}
+		
+7. Write a program which print two number which was the addition of a given number? you will be given a interger number and array of integer Number?
+
+Ans:-   
+		 public static void Main(string[] args)
+			{
+			  printTwoNumbers(10);    // output - 4,6
+			}
+			
+		 private static void printTwoNumbers(int targetNumber)
+			{
+				int[] arr =new  int[] {2,4,6,4,7,6}; bool flag=false;
+				for (var i = 0; i < arr.Length; i++)
+				{
+					for (var j = i+1; j < arr.Length; j++)
+					{
+						if(arr[i] + arr[j] == targetNumber)
+						{
+						  Console.WriteLine("{0}  {1}", arr[i],arr[j]); flag = true;
+						  break;
+						}
+					}
+					if(flag)
+					break;
+				}
+			}
+			
+8. Asynchronous Programming vs Parallel or concurrent Programming
+
+Ans: -	 Asynchronous ::  
+
+			Let's say you are the point of contact for your client and you need to be responsive i.e. you need to share status, 
+			complexity of operation, resources required etc whenever asked. Now you have a time-consuming operation to be done 
+			and hence cannot take this up as you need to be responsive to the client 24/7. Hence, you delegate the time-consuming 
+			operation to someone else so that you can be responsive. This is asynchronous.
+
+		Parallel programming ::
+		
+			Let's say you have a task to read, say, 100 lines from a text file, and reading one line takes 1 second. Hence, you'll 
+			require 100 seconds to read the text file. Now you're worried that the client must wait for 100 seconds for the operation to finish. 
+			Hence you create 9 more clones and make each of them read 10 lines from the text file. Now the time taken is only 10 seconds to read 
+			100 lines. Hence you have better performance.
+
+			To sum up, asynchronous coding is done to achieve responsiveness and parallel programming is done for performance.
+
+9. Why we use Dynamic in C#?
+
+Ans: -  It is used to avoid the compile-time type checking. The compiler does not check the type of the dynamic type variable at compile time, 
+		instead of this, the compiler gets the type at the run time. The dynamic type variable is created using dynamic keyword.
+		
+10. How to Print 
+       string s= "Hi \t\n Sunil"; as it is without getting into newline.
+	   
+Ans: - 	   @ or \
+
+11. what is the user of Filters in MVC?
+
+Ans: - 
+
+12. Exception at Global and Controller Level. 
+
+Ans: -  list of ways to handle exception such as:
+			1. Try-catch-finally
+			2. Overriding OnException method
+			3. Using the [HandleError] attribute on actions and controllers
+			4. Setting a global exception handling filter
+			5. Handling Application_Error event
+			6. Extending HandleErrorAttribute
